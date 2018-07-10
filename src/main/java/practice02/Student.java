@@ -1,9 +1,7 @@
 package practice02;
 
-public class Student {
-    String name;
-    int age;
-    int klass;
+public class Student extends Person{
+   int klass;
 
     public int getKlass() {
         return klass;
@@ -14,12 +12,12 @@ public class Student {
     }
 
     public Student(String name, int age, int klass) {
-
-        this.name = name;
-        this.age = age;
+        super(name,age);
         this.klass = klass;
     }
-
+    public Student(String name, int age) {
+        super(name,age);
+    }
     public String getName() {
         return name;
     }
@@ -36,12 +34,8 @@ public class Student {
         this.age = age;
     }
 
-    public Student(String name, int age) {
 
-        this.name = name;
-        this.age = age;
-    }
     public String introduce(){
-
+        return "I am a Student. I am at Class "+this.getKlass()+".";
     }
 }
