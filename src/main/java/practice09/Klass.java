@@ -1,5 +1,4 @@
 package practice09;
-
 public class Klass {
     int number;
     Student leader;
@@ -10,28 +9,23 @@ public class Klass {
         return "Class "+this.number;
     }
     public void appendMember(Student student){
-        student.klass = this;
+        student.setKlass(this);;
     }
     public void assignLeader(Student student){
-        if(student.klass.equals(this))
-            this.leader = student;
+        if(student.getKlass().getNumber()==this.getNumber())
+            this.setLeader(student);
         else
             System.out.print("It is not one of us.\n");
-
     }
     public int getNumber() {
         return number;
     }
 
-    public Student getLeader() {
-        return leader;
+    public void setLeader(Student leader) {
+        this.leader = leader;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if(obj instanceof Klass){
-            return ((Klass)obj).number ==this.number;
-        }
-        return super.equals(obj);
+    public Student getLeader() {
+        return leader;
     }
 }

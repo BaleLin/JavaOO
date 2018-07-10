@@ -7,11 +7,15 @@ public class Student extends Person{
         this.klass = klass;
     }
     public String introduce(){
-        if(this.klass.leader!=this)
+        if(this.getKlass().getLeader()!=this)
             return super.basicIntroduce()+" I am a Student. I am at Class "+this.klass.number+".";
         return super.basicIntroduce()+" I am a Student. I am Leader of Class "+this.klass.number+".";
     }
     public Klass getKlass(){
         return this.klass;
+    }
+
+    public void setKlass(Klass klass) {
+        this.klass = klass;
     }
 }

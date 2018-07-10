@@ -10,17 +10,18 @@ public class Klass {
         return "Class "+this.number;
     }
     public void appendMember(Student student){
-        student.klass = this;
+        student.setKlass(this);;
     }
-    public String assignLeader(Student student){
-        if(student.klass==this)
-            this.leader = student;
-        else
-            return "It is not one of us.";
-        return "";
+    public void assignLeader(Student student){
+        if(student.getKlass().getNumber()==this.getNumber())
+            this.setLeader(student);
     }
     public int getNumber() {
         return number;
+    }
+
+    public void setLeader(Student leader) {
+        this.leader = leader;
     }
 
     public Student getLeader() {

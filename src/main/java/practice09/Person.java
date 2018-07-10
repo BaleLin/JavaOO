@@ -25,7 +25,7 @@ public class Person {
         return age;
     }
 
-    @Override
+
     public boolean equals(Object obj) {
         if(obj instanceof Person){
             return ((Person)obj).id ==this.id;

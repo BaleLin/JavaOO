@@ -12,14 +12,14 @@ public class Teacher extends Person{
     }
 
     public String introduce(){
-        if(this.klass!=null)
+        if(this.getKlass()!=null)
             return super.basicIntroduce()+" I am a Teacher. I teach Class "+this.klass.number+".";
         else
             return super.basicIntroduce()+" I am a Teacher. I teach No Class.";
     }
 
     public String introduceWith(Student student){
-        if(student.klass.number==this.klass.number)
+        if(student.getKlass()==this.getKlass())
             return "My name is "+this.name+". I am "+this.age+" years old. I am a Teacher. I teach "+student.name+".";
         else
             return "My name is "+this.name+". I am "+this.age+" years old. I am a Teacher. I don't teach "+student.name+".";
