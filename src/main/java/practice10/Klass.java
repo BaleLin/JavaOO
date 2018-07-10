@@ -27,7 +27,7 @@ public class Klass {
         return leader;
     }
 
-    @Override
+    //判断对象是否相等
     public boolean equals(Object obj) {
         if(obj instanceof Klass){
             return ((Klass)obj).number ==this.number;
