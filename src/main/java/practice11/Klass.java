@@ -40,18 +40,14 @@ public class Klass extends Observable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Klass klass = (Klass) o;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Klass klass = (Klass) obj;
         return Objects.equals(number, klass.number) &&
                 Objects.equals(leader, klass.leader);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(number, leader);
-    }
 
     public void appendMember(Student student) {
         student.setKlass(this);

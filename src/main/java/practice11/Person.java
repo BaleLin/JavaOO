@@ -42,20 +42,16 @@ public class Person {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(id, person.id) &&
-                Objects.equals(name, person.name) &&
-                Objects.equals(age, person.age);
+    public boolean equals(Object obj) {
+        //先比较对象是否相等
+        if (this == obj) return true;
+        //判断是否出现空的情况
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Person person = (Person) obj;
+        return Objects.equals(id, person.id);
     }
 
-    @Override
-    public int hashCode() {
 
-        return Objects.hash(id, name, age);
-    }
 
     public String introduce() {
         return "My name is " + name + ". I am " + age + " years old.";
