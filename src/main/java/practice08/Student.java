@@ -1,21 +1,32 @@
 package practice08;
 
-public class Student extends Person{
-    Klass klass;
-    Student(int id,String name,int age ,Klass klass){
-        super(id,name, age);
+public class Student extends Person {
+    private Klass klass;
+
+
+    public Student(Integer id, String name, Integer age) {
+        super(id, name, age);
+    }
+
+    public Student(Integer id, String name, Integer age, Klass klass) {
+        super(id, name, age);
         this.klass = klass;
     }
-    public String introduce(){
-        if(this.getKlass().getLeader()!=this)
-            return super.basicIntroduce()+" I am a Student. I am at Class "+this.klass.number+".";
-        return super.basicIntroduce()+" I am a Student. I am Leader of Class "+this.klass.number+".";
+
+    public Student() {
     }
-    public Klass getKlass(){
-        return this.klass;
+
+    public Klass getKlass() {
+        return klass;
     }
 
     public void setKlass(Klass klass) {
         this.klass = klass;
     }
+
+    public String introduce() {
+        String str = (klass.getLeader() != null && klass.getLeader().equals(this)) ? "Leader of " : "at ";
+        return super.introduce() + " I am a Student. I am " + str + klass.getDisplayName() + ".";
+    }
+
 }

@@ -1,32 +1,33 @@
 package practice06;
 
-public class Teacher extends  Person{
-    int klass;
-    int flag;
-    public Teacher(String name, int age) {
-        super(name,age);
+public class Teacher extends Person {
+
+    private Integer klass;
+
+    public Teacher(String name, Integer age, Integer klass) {
+        super(name, age);
         this.klass = klass;
-    }
-    public Teacher(String name, int age,int klass) {
-        super(name,age);
-        this.klass = klass;
-        flag=1;
     }
 
-    public int getKlass() {
+    public Teacher(String name, Integer age) {
+        super(name, age);
+    }
+
+    public Teacher() {
+    }
+
+    public Integer getKlass() {
         return klass;
     }
 
-    public void setKlass(int klass) {
+    public void setKlass(Integer klass) {
         this.klass = klass;
     }
-    public String introduce(){
-        if(flag==1){
-            return super.introduce() +" I am a Teacher. I teach Class "+this.getKlass()+".";
-        }else {
-            return super.introduce() +" I am a Teacher. I teach No Class.";
-        }
 
+    @Override
+    public String introduce() {
+        String str = (klass != null) ? "Class " + klass + "." : "No Class.";
+        return super.introduce() + " I am a Teacher. I teach " + str;
     }
 
 

@@ -1,13 +1,18 @@
 package practice01;
 
 public class Person {
-    String name;
-    int age;
 
-    public Person(String name, int age) {
+    private String name;
+    private Integer age;
+
+    public Person() {
+    }
+
+    public Person(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
+
 
     public String getName() {
         return name;
@@ -17,11 +22,23 @@ public class Person {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
+    public String introduce() {
+        return "My name is " + name + ". I am " + age + " years old.";
     }
 }

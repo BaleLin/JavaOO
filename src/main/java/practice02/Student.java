@@ -1,23 +1,20 @@
 package practice02;
 
 public class Student extends Person{
-   int klass;
 
-    public int getKlass() {
-        return klass;
-    }
+    private String name;
+    private Integer age;
+    private Integer klass;
 
-    public void setKlass(int klass) {
+    public Student(String name, Integer age, Integer klass) {
+        this.name = name;
+        this.age = age;
         this.klass = klass;
     }
 
-    public Student(String name, int age, int klass) {
-        super(name,age);
-        this.klass = klass;
+    public Student() {
     }
-    public Student(String name, int age) {
-        super(name,age);
-    }
+
     public String getName() {
         return name;
     }
@@ -26,16 +23,32 @@ public class Student extends Person{
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
+    public Integer getKlass() {
+        return klass;
+    }
 
-    public String introduce(){
-        return "I am a Student. I am at Class "+this.getKlass()+".";
+    public void setKlass(Integer klass) {
+        this.klass = klass;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", klass=" + klass +
+                '}';
+    }
+
+    public String introduce() {
+        return "I am a Student. I am at Class " + klass + ".";
     }
 }

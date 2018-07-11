@@ -1,22 +1,40 @@
 package practice07;
 
-public class Klass {
-    int number;
+import java.util.Objects;
 
-    public int getNumber() {
+public class Klass {
+
+    private Integer number;
+
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
-    public Klass(int number) {
-
+    public Klass(Integer number) {
         this.number = number;
     }
 
-    public  String getDisplayName(){
-        return "Class "+this.number;
+    public Klass() {
+    }
+
+    public String getDisplayName() {
+        return "Class " + number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Klass klass = (Klass) o;
+        return Objects.equals(number, klass.number);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }

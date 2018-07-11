@@ -1,32 +1,36 @@
 package practice09;
 
 public class Teacher extends Person{
-    Klass klass;
-    Teacher(int id,String name,int age,Klass klass){
-        super(id,name,age);
+    private Klass klass;
+
+    public Teacher(Integer id, String name, Integer age, Klass klass) {
+        super(id, name, age);
         this.klass = klass;
     }
 
-    Teacher(int id,String name,int age){
-        super(id,name,age);
+    public Teacher(Integer id, String name, Integer age) {
+        super(id, name, age);
     }
 
-    public String introduce(){
-        if(this.getKlass()!=null)
-            return super.basicIntroduce()+" I am a Teacher. I teach Class "+this.klass.number+".";
-        else
-            return super.basicIntroduce()+" I am a Teacher. I teach No Class.";
+    public Teacher() {
     }
-
-    public String introduceWith(Student student){
-        if(student.getKlass()==this.getKlass())
-            return "My name is "+this.name+". I am "+this.age+" years old. I am a Teacher. I teach "+student.name+".";
-        else
-            return "My name is "+this.name+". I am "+this.age+" years old. I am a Teacher. I don't teach "+student.name+".";
-    }
-
 
     public Klass getKlass() {
         return klass;
+    }
+
+    public void setKlass(Klass klass) {
+        this.klass = klass;
+    }
+
+    @Override
+    public String introduce() {
+        String str = (klass != null) ? klass.getDisplayName() + "." : "No Class.";
+        return super.introduce() + " I am a Teacher. I teach " + str;
+    }
+
+    public String introduceWith(Student student) {
+        String str = (student.getKlass().equals(klass)) ? "I teach " + student.getName() : "I don't teach " + student.getName();
+        return super.introduce() + " I am a Teacher. " + str + ".";
     }
 }

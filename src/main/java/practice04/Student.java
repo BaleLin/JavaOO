@@ -1,41 +1,27 @@
 package practice04;
-public class Student extends Person{
-    int klass;
 
-    public int getKlass() {
+public class Student extends Person {
+
+    private Integer klass;
+
+
+    public Student(String name, Integer age, Integer klass) {
+        super(name, age);
+        this.klass = klass;
+    }
+
+    public Student() {
+    }
+
+    public Integer getKlass() {
         return klass;
     }
 
-    public void setKlass(int klass) {
+    public void setKlass(Integer klass) {
         this.klass = klass;
     }
 
-    public Student(String name, int age, int klass) {
-        super(name,age);
-        this.klass = klass;
-    }
-    public Student(String name, int age) {
-        super(name,age);
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-
-    public String introduce(){
-        return super.introduce() +" I am a Student. I am at Class "+this.getKlass()+".";
+    public String introduce() {
+        return super.basicIntroduce() + " I am a Student. I am at Class " + klass + ".";
     }
 }
-

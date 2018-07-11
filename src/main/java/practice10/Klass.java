@@ -1,37 +1,67 @@
 package practice10;
 
+import java.util.Objects;
+
 public class Klass {
-    int number;
-    Student leader;
-    Klass(int number){
+    private Integer number;
+    private Student leader;
+
+    public Klass(Integer number) {
         this.number = number;
     }
-    public String getDisplayName(){
-        return "Class "+this.number;
-    }
-    public void appendMember(Student student){
-        student.klass = this;
-    }
-    public void assignLeader(Student student){
-        if(student.klass.equals(this))
-            this.leader = student;
-        else
-            System.out.print("It is not one of us.\n");
 
-    }
-    public int getNumber() {
-        return number;
+    public Klass() {
     }
 
     public Student getLeader() {
         return leader;
     }
 
-    //判断对象是否相等
-    public boolean equals(Object obj) {
-        if(obj instanceof Klass){
-            return ((Klass)obj).number ==this.number;
+    public void setLeader(Student leader) {
+        this.leader = leader;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public String getDisplayName() {
+        return "Class " + number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Klass klass = (Klass) o;
+        return Objects.equals(number, klass.number) &&
+                Objects.equals(leader, klass.leader);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(number, leader);
+    }
+
+    public void assignLeader(Student student) {
+        if (student.getKlass().equals(this)) {
+            leader = student;
+        } else {
+            System.out.print("It is not one of us.\n");
         }
-        return super.equals(obj);
+
+    }
+
+    public void appendMember(Student student) {
+        student.setKlass(this);
+    }
+
+    public boolean isIn(Student student){
+        return this.equals(student.getKlass());
     }
 }
